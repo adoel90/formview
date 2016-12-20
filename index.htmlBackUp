@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Generate Value in URL</title>
+<script type="text/javascript">
+function process(){
+	//var url="http://localhost:8080/" + document.getElementById("url").value;
+	var url="http://localhost:" + document.getElementById("port").value;
+	location.href=url;
+	return false;
+};
+
+// function process(){
+// 	//var url="http://localhost:8080/" + document.getElementById("url").value;
+// 	var port="http://localhost:" + document.getElementById("port").value;
+// 	var accountNumber="/cms/component/cmsviewer?" + "account_number=" + document.getElementById(accountNumber).value;
+// 	location.href=port + accountNumber;
+// 	return false;
+// };
+
+
+
+//http://localhost:8080/cms/component/cmsviewer?account_no=310100452369&cif_no=2000593831&document_code=0770&document_number=890&document_date=11/11/2013&collateral_id=2000593831/RE/000001
+
+/*
+#1
+<form onSubmit="return process();"> 
+	Port: <input type="text" name="port" id="port">
+	<input type="submit" value="Submit">
+
+</form>*/
+</script>
+</head>
+<body>
+<form enctype="application/json">
+	<input name="account_number" value="accountNumber" />
+	<input name="cif_no" value="cifNo" />
+	<input name="document_code" value="documentCode" />
+	<input name="document_number" value="documentNumber" />
+	<input name="document_date" value="documentDate" />
+	<input name="collateral_id" value="collateral_id" />
+</form>
+</body>
+</html>

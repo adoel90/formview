@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appForm">
+<head>
+	<title>Form Generate Value in URL</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="mainController">
+	<form>
+		<label>Account Number : </label>
+		<input type="text"  ng-model='atribute.name' ng-model-options='{getterSetter:true}'/><br>
+
+
+	</form>
+	<pre>
+		<code>
+			atribute.name ==> <span ng-bind="atribute.name()"></span>
+		</code>
+	</pre>
+</div>
+
+<script type="text/javascript">
+// angular.module('appForm', [])
+// 	.controller('mainController', function($scope){
+// 		var people = [
+// 		{
+// 			name: 'Abdoel',
+// 			email: ''
+// 		},
+// 		{
+// 			name: 'Vi',
+// 			email: ''
+// 		},
+// 	];
+
+// 	$scope.formDataOne = {};
+// 	$scope.formDataOne.people = people;
+// });
+
+angular.module('appForm', [])
+	.controller('mainController', ['$scope', function($scope){
+		var _acountNumber= "1212121";
+
+		$scope.atribute = {
+			name : function(newAtribute){
+				if(arguments.length){
+					return _acountNumber = newAtribute
+				} else{
+					return _acountNumber;
+				}
+			}
+		};
+	}]);
+
+</script>
+</body>
+</html>

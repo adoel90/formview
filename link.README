@@ -1,0 +1,30 @@
+http://10.204.90.73:8080/cms/component/cmsviewer?account_no=1600100213806&cif_no=1003742236&document_code=None&document_number=None&document_date=None&collateral_id=1003742236/RE/000001
+
+http://10.204.90.73:8080/cms/component/cmsviewer?account_no=1600100213806&cif_no=1003742236&document_code=0410&document_number=54645664&document_date=None&collateral_id=1003742236/RE/000001
+
+http://10.204.90.73:8080/cms/component/cmsviewer?account_no=1600100213806&cif_no=1003742236&document_code=CNAJB&document_number=None&document_date=None&collateral_id=1003742236/RE/000001
+
+http://10.204.90.73:8080/cms/component/cmsviewer?account_no=1400198002900&cif_no=16000071855&document_code=0410&document_number=188/1097.94/402.5.09/1997&document_date=None&collateral_id=16000071855/RE/000001
+
+http://10.204.90.73:8080/cms/component/cmsviewer?account_no=1400100745620&cif_no=1003430291&document_code=0620&document_number=435&document_date=None&collateral_id=1003430291/RE/000001
+
+http://10.204.90.73:8080/cms/component/cmsviewer?account_no=1350100238458&cif_no=6000236079&document_code=0580&document_number=SHT I NO. 00803/2010&document_date=None&collateral_id=6000236079/RE/000001
+
+http://10.204.90.73:8080/cms/component/cmsviewer?account_no=1150100377771&cif_no=21000277709&document_code=&document_number=None&document_date=None&collateral_id=21000277709/RE/000001
+
+http://10.204.90.73:8080/cms/component/cmsviewer?account_no=1150100377771&cif_no=21000277709&document_code=1090&document_number=None&document_date=None&collateral_id=21000277709/RE/000001
+
+http://10.204.90.73:8080/cms/component/cmsviewer?account_no=60100258478&cif_no=1000121407&document_code=0620&document_number=99494/990&document_date=None&collateral_id=1000121407/INV/000002
+
+http://10.204.90.73:8080/cms/component/cmsviewer?account_no=60100313356&cif_no=1003034265&document_code=0630&document_number=54543&document_date=None&collateral_id=1003034265/RE/000001
+
+
+Link ke-4 ga bisa di view,
+Link ke-7, ga bisa di isi METADATA-nya --> Customer name
+
+
+
+delete ct_mandiri_doc object where r_object_id= 
+
+
+select * from tbl_simple_document_type 

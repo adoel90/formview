@@ -3,12 +3,25 @@
 <head>
 	<title>Form Generate Value in URL</title>
 	<script type="text/javascript" src="js/angular.min.js"></script>
+
+<style type="text/css">
+	input.ng-invalid {
+		border: 1px solid red;
+		background-color: red; 
+		color:white;
+	}
+	/*
+	input.ng-valid {
+		border: 1px solid green;
+		background-color: grey;
+	}*/
+</style>
 </head>
 <body>
 <div ng-controller="mainController">
-	<form>
+	<form ng-submit="submit()">
 		<label>Account Number : </label>
-		<input type="text"  ng-model='acountNumberScope.name' ng-model-options='{getterSetter:true}'/><br>
+		<input type="text"  ng-maxlength=5 ng-model='acountNumberScope.name' ng-model-options='{getterSetter:true}'/><br>
 
 		<label>Cif Number : </label>
 		<input type="text"  ng-model='cifNumberScope.name' ng-model-options='{getterSetter:true}'/><br>
@@ -56,7 +69,7 @@
 
 angular.module('appForm', [])
 	.controller('mainController', ['$scope', function($scope){
-		var _acountNumber= "1212121";
+		var _acountNumber= "11";
 		var _ciftNumber= "17897979";
 		var _documentCode= "8098098";
 		var _documentDate= "";

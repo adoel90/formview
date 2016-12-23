@@ -5,6 +5,9 @@
 	<script type="text/javascript" src="js/angular.min.js"></script>
 
 <style type="text/css">
+	ul{
+		list-style: none;
+	}
 	input.ng-invalid {
 		border: 1px solid red;
 		background-color: red; 
@@ -21,52 +24,59 @@
 <div ng-controller="mainController">
 	<form ng-submit="submit()">
 		<label>Account Number : </label>
-		<input type="text"  ng-maxlength=5 ng-model='acountNumberScope.name' ng-model-options='{getterSetter:true}'/><br>
+		<input type="text"  ng-maxlength=5 ng-model='acountNumberScope.name' /><br>
 
 		<label>Cif Number : </label>
-		<input type="text"  ng-model='cifNumberScope.name' ng-model-options='{getterSetter:true}'/><br>
+		<input type="text"  ng-model='cifNumberScope.name' /><br>
 
 		<label>Document Code : </label>
-		<input type="text"  ng-model='documentCodeScope.name' ng-model-options='{getterSetter:true}'/><br>
+		<input type="text"  ng-model='documentCodeScope.name' /><br>
 
 		<label>Document Date : </label>
-		<input type="date"  ng-model='documentDateScope.name' ng-model-options='{getterSetter:true}'/><br>
+		<input type="date"  ng-model='documentDateScope.name' /><br>
 
 		<label>Collateral Id : </label>
-		<input type="text"  ng-model='collateralIdScope.name' ng-model-options='{getterSetter:true}'/><br>
+		<input type="text"  ng-model='collateralIdScope.name'/><br>
 
+		<input type="submit" name="acountNumberScope.name" value="Submit" />
 
 	</form>
-	<pre>
-		<code>
-			acountNumberScope.name ==> <span ng-bind="acountNumberScope.name()"></span>
-		</code>
-	</pre>
-	<pre>
-		<code>
-			cifNumberScope.name ==> <span ng-bind="cifNumberScope.name()"></span>
-		</code>
-	</pre>
-	<pre>
-		<code>
-			documentCodeScope.name ==> <span ng-bind="documentCodeScope.name()"></span>
-		</code>
-	</pre>
-	<pre>
-		<code>
-			documentDateScope.name ==> <span ng-bind="documentDateScope.name()"></span>
-		</code>
-	</pre>
-	<pre>
-		<code>
-			collateralIdScope.name ==> <span ng-bind="collateralIdScope.name()"></span>
-		</code>
-	</pre>
+	<br>
+	<br>
+
+	<ul ng-repeat="(index, object) in acountNumberCollection">
+		<li >
+			 <code>{ acountNumberScope : {{object.name}} }</code>
+		</li>
+	</ul>
+	
+	<ul ng-repeat="(index, object) in cifNumberCollection">
+		<li >
+			 <code>{ cifNumberScope : {{object.name}} }</code>
+		</li>
+	</ul>
+
+	<ul ng-repeat="(index, object) in documentCodeCollection">
+		<li >
+			 <code>{ documentCodeScope : {{object.name}} }</code>
+		</li>
+	</ul>
+
+	<ul ng-repeat="(index, object) in documentDateCollection">
+		<li >
+			 <code>{ documentDateScope : {{object.name}} }</code>
+		</li>
+	</ul>
+
+	<ul ng-repeat="(index, object) in collateralIdCollection">
+		<li >
+			 <code>{collateralIdScope : {{object.name}} }</code>
+		</li>
+	</ul>
 </div>
 
 <script type="text/javascript">
 //http://localhost:8080/cms/component/cmsviewer?account_no=310100452369&cif_no=2000593831&document_code=0770&document_number=890&document_date=11/11/2013&collateral_id=2000593831/RE/000001
-
 angular.module('appForm', [])
 	.controller('mainController', ['$scope', function($scope){
 		var _acountNumber= "11";
@@ -75,56 +85,60 @@ angular.module('appForm', [])
 		var _documentDate= "";
 		var _collateralId= "9685857";
 
+		//#1
+		$scope.acountNumberCollection = [];
 		$scope.acountNumberScope = {
-			name : function(newAtribute){
-				if(arguments.length){
-					return _acountNumber = newAtribute
-				} else{
-					return _acountNumber;
-				}
-			}
+			name : null
 		};
 
+		//#2
+		$scope.cifNumberCollection = [];
 		$scope.cifNumberScope = {
-			name : function(newAtribute){
-				if(arguments.length){
-					return _ciftNumber = newAtribute
-				} else{
-					return _ciftNumber;
-				}
-			}
+			name : null
 		};
 
+		//#3
+		$scope.documentCodeCollection = [];
 		$scope.documentCodeScope = {
-			name : function(newAtribute){
-				if(arguments.length){
-					return _documentCode = newAtribute
-				} else{
-					return _documentCode;
-				}
-			}
+			name : null
 		};
 
+		//#4
+		$scope.documentDateCollection = [];
 		$scope.documentDateScope= {
-			name : function(newAtribute){
-				if(arguments.length){
-					return _documentDate = newAtribute
-				} else{
-					return _documentDate;
-				}
-			}
+			name : null
 		};
 
+		//#5
+		$scope.collateralIdCollection = [];
 		$scope.collateralIdScope= {
-			name : function(newAtribute){
-				if(arguments.length){
-					return _collateralId = newAtribute
-				} else{
-					return _collateralId;
-				}
-			}
+			name : null
 		};
 
+		//#6, ng-submit
+		$scope.submit = function(){
+			if($scope.acountNumberScope.name){
+				$scope.acountNumberCollection.push({name: $scope.acountNumberScope.name});
+				console.log($scope.acountNumberCollection);
+			}
+			if($scope.cifNumberScope.name){
+				$scope.cifNumberCollection.push({name: $scope.cifNumberScope.name});
+				console.log($scope.acountNumberCollection);
+			}
+			if($scope.documentCodeScope.name){
+				$scope.documentCodeCollection.push({name: $scope.documentCodeScope.name});
+				console.log($scope.documentCodeCollection);
+			}
+			if($scope.documentDateScope.name){
+				$scope.documentDateCollection.push({name: $scope.documentDateScope.name});
+				console.log($scope.documentDateCollection);
+			}
+			if($scope.collateralIdScope.name){
+				$scope.collateralIdCollection.push({name: $scope.collateralIdScope.name});
+				console.log($scope.collateralIdCollection);
+			}
+			
+		};
 	}]);
 
 </script>

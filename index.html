@@ -8,40 +8,61 @@
 <div ng-controller="mainController">
 	<form>
 		<label>Account Number : </label>
-		<input type="text"  ng-model='atribute.name' ng-model-options='{getterSetter:true}'/><br>
+		<input type="text"  ng-model='acountNumberScope.name' ng-model-options='{getterSetter:true}'/><br>
+
+		<label>Cif Number : </label>
+		<input type="text"  ng-model='cifNumberScope.name' ng-model-options='{getterSetter:true}'/><br>
+
+		<label>Document Code : </label>
+		<input type="text"  ng-model='documentCodeScope.name' ng-model-options='{getterSetter:true}'/><br>
+
+		<label>Document Date : </label>
+		<input type="date"  ng-model='documentDateScope.name' ng-model-options='{getterSetter:true}'/><br>
+
+		<label>Collateral Id : </label>
+		<input type="text"  ng-model='collateralIdScope.name' ng-model-options='{getterSetter:true}'/><br>
 
 
 	</form>
 	<pre>
 		<code>
-			atribute.name ==> <span ng-bind="atribute.name()"></span>
+			acountNumberScope.name ==> <span ng-bind="acountNumberScope.name()"></span>
+		</code>
+	</pre>
+	<pre>
+		<code>
+			cifNumberScope.name ==> <span ng-bind="cifNumberScope.name()"></span>
+		</code>
+	</pre>
+	<pre>
+		<code>
+			documentCodeScope.name ==> <span ng-bind="documentCodeScope.name()"></span>
+		</code>
+	</pre>
+	<pre>
+		<code>
+			documentDateScope.name ==> <span ng-bind="documentDateScope.name()"></span>
+		</code>
+	</pre>
+	<pre>
+		<code>
+			collateralIdScope.name ==> <span ng-bind="collateralIdScope.name()"></span>
 		</code>
 	</pre>
 </div>
 
 <script type="text/javascript">
-// angular.module('appForm', [])
-// 	.controller('mainController', function($scope){
-// 		var people = [
-// 		{
-// 			name: 'Abdoel',
-// 			email: ''
-// 		},
-// 		{
-// 			name: 'Vi',
-// 			email: ''
-// 		},
-// 	];
-
-// 	$scope.formDataOne = {};
-// 	$scope.formDataOne.people = people;
-// });
+//http://localhost:8080/cms/component/cmsviewer?account_no=310100452369&cif_no=2000593831&document_code=0770&document_number=890&document_date=11/11/2013&collateral_id=2000593831/RE/000001
 
 angular.module('appForm', [])
 	.controller('mainController', ['$scope', function($scope){
 		var _acountNumber= "1212121";
+		var _ciftNumber= "17897979";
+		var _documentCode= "8098098";
+		var _documentDate= "";
+		var _collateralId= "9685857";
 
-		$scope.atribute = {
+		$scope.acountNumberScope = {
 			name : function(newAtribute){
 				if(arguments.length){
 					return _acountNumber = newAtribute
@@ -50,6 +71,47 @@ angular.module('appForm', [])
 				}
 			}
 		};
+
+		$scope.cifNumberScope = {
+			name : function(newAtribute){
+				if(arguments.length){
+					return _ciftNumber = newAtribute
+				} else{
+					return _ciftNumber;
+				}
+			}
+		};
+
+		$scope.documentCodeScope = {
+			name : function(newAtribute){
+				if(arguments.length){
+					return _documentCode = newAtribute
+				} else{
+					return _documentCode;
+				}
+			}
+		};
+
+		$scope.documentDateScope= {
+			name : function(newAtribute){
+				if(arguments.length){
+					return _documentDate = newAtribute
+				} else{
+					return _documentDate;
+				}
+			}
+		};
+
+		$scope.collateralIdScope= {
+			name : function(newAtribute){
+				if(arguments.length){
+					return _collateralId = newAtribute
+				} else{
+					return _collateralId;
+				}
+			}
+		};
+
 	}]);
 
 </script>
